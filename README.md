@@ -4,5 +4,12 @@
  > The tool for managing the monorepo is [Lerna](https://github.com/lerna/lerna)
 
  ## Installation
+ Install dependencies:
+ ```sh
+ $ npm install -g node-gyp rimraf jshint eslint
+ ```
+
  Globally install Lerna:
- ````npm install -g lerna
+```sh
+$ npm install -g lerna
+```
