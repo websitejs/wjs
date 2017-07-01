@@ -1,0 +1,23 @@
+{
+  "name": "@wjs/wjs-core",
+  "version": "0.0.1",
+  "description": "WebsiteJS Core Package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/websitejs/wjs.git"
+  },
+  "keywords": [
+    "WebsiteJS",
+    "Core"
+  ],
+  "author": "Rocco Janse <roccojanse@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/websitejs/wjs/issues"
+  },
+  "homepage": "https://github.com/websitejs/wjs#readme"
+}
