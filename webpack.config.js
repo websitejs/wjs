@@ -8,7 +8,7 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
-    devtool: '#source-map',
+    devtool: 'source-map',
     module: {
         rules: [
             { // es6
@@ -24,18 +24,28 @@ module.exports = {
             { // regular css files
                 test: /\.css$/,
                 use: extractTextPlugin.extract({
-                    use: 'css-loader?importLoaders=1&?sourceMap',
-                }),
+                    use: [
+                        { loader: 'style-loader', options: { sourceMap: true }},
+                        { loader: 'css-loader', options: { importLoaders: 1, sourceMap: true }},
+                        { loader: 'postcss-loader', options: { plugins: [ require('autoprefixer')() ], sourceMap: true }}
+                    ]
+                })
             },
             { // sass / scss
                 test: /\.(sass|scss)$/,
-                use: extractTextPlugin.extract(['css-loader?sourceMap', 'sass-loader?sourceMap'])
+                use: extractTextPlugin.extract({
+                    use: [
+                        { loader: 'css-loader', options: { sourceMap: true }}, 
+                        { loader: 'postcss-loader', options: { plugins: [ require('autoprefixer')(), require('cssnano')({ discardComments: { removeAll: true }, safe: true, sourcemap: true}) ], sourceMap: true }},
+                        { loader: 'sass-loader', options: { sourceMap: true }}
+                    ]
+                })
             }
         ]
     },
     plugins: [
         new extractTextPlugin({
-            filename: 'bundle.css',
+            filename: 'bundle.min.css',
             allChunks: true
         })
     ]
