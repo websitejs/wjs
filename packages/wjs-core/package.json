@@ -1,5 +1,5 @@
 {
-  "name": "@wjs/wjs-core",
+  "name": "wjs-core",
   "version": "0.0.1",
   "description": "WebsiteJS Core Package",
   "main": "index.js",
