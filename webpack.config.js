@@ -1,6 +1,7 @@
 /* jshint esversion: 6 */
-const   path = require('path'),
-        extractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const extractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: ['./src/index.js', './src/styles.scss'],
@@ -24,32 +25,32 @@ module.exports = {
             { // regular css files
                 test: /\.css$/,
                 use: extractTextPlugin.extract({
-                    use: [{ 
-                        loader: 'style-loader', 
-                        options: { 
-                            sourceMap: true 
-                        }
-                    },{ 
-                        loader: 'css-loader', 
-                        options: { 
-                            importLoaders: 1, 
-                            sourceMap: true 
-                        }
-                    },{ 
-                        loader: 'postcss-loader', 
+                    use: [{
+                        loader: 'style-loader',
                         options: {
-                            sourceMap: true, 
-                            plugins: [ 
-                                require('autoprefixer')(), 
-                                require('cssnano')({ 
-                                    discardComments: { 
-                                        removeAll: true 
+                            sourceMap: true
+                        }
+                    }, {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            sourceMap: true
+                        }
+                    }, {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true,
+                            plugins: [
+                                require('autoprefixer')(),
+                                require('cssnano')({
+                                    discardComments: {
+                                        removeAll: true
                                     },
-                                    zindex: false, 
+                                    zindex: false,
                                     discardUnused: false,
                                     mergeIdents: false,
                                     reduceIdents: false,
-                                    safe: true, 
+                                    safe: true,
                                     sourcemap: true
                                 })
                             ]
@@ -60,34 +61,34 @@ module.exports = {
             { // sass / scss
                 test: /\.(sass|scss)$/,
                 use: extractTextPlugin.extract({
-                    use: [{ 
-                        loader: 'css-loader', 
-                        options: { 
+                    use: [{
+                        loader: 'css-loader',
+                        options: {
                             sourceMap: true
                         }
-                    },{ 
-                        loader: 'postcss-loader', 
-                        options: { 
-                            sourceMap: true, 
-                            plugins: [ 
-                                require('autoprefixer')(), 
-                                require('cssnano')({ 
-                                    discardComments: { 
-                                        removeAll: true 
+                    }, {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true,
+                            plugins: [
+                                require('autoprefixer')(),
+                                require('cssnano')({
+                                    discardComments: {
+                                        removeAll: true
                                     },
                                     zindex: false,
                                     discardUnused: false,
                                     mergeIdents: false,
-                                    reduceIdents: false, 
-                                    safe: true, 
+                                    reduceIdents: false,
+                                    safe: true,
                                     sourcemap: true
                                 })
-                            ] 
+                            ]
                         }
-                    },{ 
-                        loader: 'sass-loader', 
-                        options: { 
-                            sourceMap: true 
+                    }, {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
                         }
                     }]
                 })
@@ -98,6 +99,18 @@ module.exports = {
         new extractTextPlugin({
             filename: 'bundle.min.css',
             allChunks: true
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            beautify: false,
+            mangle: {
+                screw_ie8: true,
+                keep_fnames: true
+            },
+            compress: {
+                screw_ie8: true
+            },
+            comments: false,
+            sourceMap: true
         })
     ]
 };
