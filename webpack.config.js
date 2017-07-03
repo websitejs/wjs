@@ -24,21 +24,72 @@ module.exports = {
             { // regular css files
                 test: /\.css$/,
                 use: extractTextPlugin.extract({
-                    use: [
-                        { loader: 'style-loader', options: { sourceMap: true }},
-                        { loader: 'css-loader', options: { importLoaders: 1, sourceMap: true }},
-                        { loader: 'postcss-loader', options: { plugins: [ require('autoprefixer')() ], sourceMap: true }}
-                    ]
+                    use: [{ 
+                        loader: 'style-loader', 
+                        options: { 
+                            sourceMap: true 
+                        }
+                    },{ 
+                        loader: 'css-loader', 
+                        options: { 
+                            importLoaders: 1, 
+                            sourceMap: true 
+                        }
+                    },{ 
+                        loader: 'postcss-loader', 
+                        options: {
+                            sourceMap: true, 
+                            plugins: [ 
+                                require('autoprefixer')(), 
+                                require('cssnano')({ 
+                                    discardComments: { 
+                                        removeAll: true 
+                                    },
+                                    zindex: false, 
+                                    discardUnused: false,
+                                    mergeIdents: false,
+                                    reduceIdents: false,
+                                    safe: true, 
+                                    sourcemap: true
+                                })
+                            ]
+                        }
+                    }]
                 })
             },
             { // sass / scss
                 test: /\.(sass|scss)$/,
                 use: extractTextPlugin.extract({
-                    use: [
-                        { loader: 'css-loader', options: { sourceMap: true }}, 
-                        { loader: 'postcss-loader', options: { plugins: [ require('autoprefixer')(), require('cssnano')({ discardComments: { removeAll: true }, safe: true, sourcemap: true}) ], sourceMap: true }},
-                        { loader: 'sass-loader', options: { sourceMap: true }}
-                    ]
+                    use: [{ 
+                        loader: 'css-loader', 
+                        options: { 
+                            sourceMap: true
+                        }
+                    },{ 
+                        loader: 'postcss-loader', 
+                        options: { 
+                            sourceMap: true, 
+                            plugins: [ 
+                                require('autoprefixer')(), 
+                                require('cssnano')({ 
+                                    discardComments: { 
+                                        removeAll: true 
+                                    },
+                                    zindex: false,
+                                    discardUnused: false,
+                                    mergeIdents: false,
+                                    reduceIdents: false, 
+                                    safe: true, 
+                                    sourcemap: true
+                                })
+                            ] 
+                        }
+                    },{ 
+                        loader: 'sass-loader', 
+                        options: { 
+                            sourceMap: true 
+                        }
+                    }]
                 })
             }
         ]

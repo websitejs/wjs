@@ -17,8 +17,3 @@ $ npm install
 ## Building
 ```sh
 $ npm run build
-```
-or 
-```sh
-$ webpack
-```
