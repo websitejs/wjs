@@ -17,6 +17,7 @@ var server = {
     },
 
     filesToWatch: [
+        path.join(Config.cwd, 'package.json'),
         path.join(__dirname, 'views', '**/*.html'),
         path.join(Config.folders.elements, '**/*.html'),
         path.join(Config.folders.components, '**/*.html')        
