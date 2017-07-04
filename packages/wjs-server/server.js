@@ -75,6 +75,7 @@ findPort(3000, 3100, '127.0.0.1', function(err, freePort){
 
             ui: false,
             logSnippet: false,
+            reloadDelay: 2000,
             reloadOnRestart: true
 
         }, function() {
