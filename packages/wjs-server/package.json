@@ -1,0 +1,35 @@
+{
+    "name": "wjs-server",
+    "version": "0.0.1",
+    "description": "WebsiteJS Server",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/websitejs/wjs.git"
+    },
+    "keywords": [
+        "WebsiteJS",
+        "Server",
+        "BrowserSync",
+        "Express",
+        "Nunjucks"
+    ],
+    "author": "Rocco Janse <roccojanse@outlook.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/websitejs/wjs/issues"
+    },
+    "homepage": "https://github.com/websitejs/wjs#readme",
+    "dependencies": {
+        "browser-sync": "^2.18.12",
+        "connect-browser-sync": "^2.1.0",
+        "dev-ip": "^1.0.1",
+        "express": "^4.15.3",
+        "node-fs-extra": "^0.8.2",
+        "nunjucks": "^3.0.1",
+        "serve-favicon": "^2.4.3"
+    }
+}

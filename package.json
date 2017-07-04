@@ -1,39 +1,40 @@
 {
-  "name": "websitejs2.0",
-  "version": "0.0.4",
-  "description": "WebsiteJS",
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/websitejs/wjs.git"
-  },
-  "keywords": [
-    "WebsiteJS"
-  ],
-  "author": "Rocco Janse <roccojanse@outlook.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/websitejs/wjs/issues"
-  },
-  "homepage": "https://github.com/websitejs/wjs#readme",
-  "devDependencies": {
-    "autoprefixer": "^7.1.1",
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.1",
-    "babel-preset-env": "^1.5.2",
-    "css-loader": "^0.28.4",
-    "cssnano": "^3.10.0",
-    "extract-text-webpack-plugin": "^2.1.2",
-    "lerna": "^2.0.0-rc.5",
-    "node-sass": "^4.5.3",
-    "postcss-loader": "^2.0.6",
-    "sass-lint": "^1.10.2",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.18.2",
-    "webpack": "^3.0.0"
-  }
+    "name": "websitejs2.0",
+    "version": "0.0.4",
+    "description": "WebsiteJS",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack",
+        "server": "node ./packages/wjs-server/server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/websitejs/wjs.git"
+    },
+    "keywords": [
+        "WebsiteJS"
+    ],
+    "author": "Rocco Janse <roccojanse@outlook.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/websitejs/wjs/issues"
+    },
+    "homepage": "https://github.com/websitejs/wjs#readme",
+    "devDependencies": {
+        "autoprefixer": "^7.1.1",
+        "babel-core": "^6.25.0",
+        "babel-loader": "^7.1.1",
+        "babel-preset-env": "^1.5.2",
+        "css-loader": "^0.28.4",
+        "cssnano": "^3.10.0",
+        "extract-text-webpack-plugin": "^2.1.2",
+        "lerna": "^2.0.0-rc.5",
+        "node-sass": "^4.5.3",
+        "postcss-loader": "^2.0.6",
+        "sass-lint": "^1.10.2",
+        "sass-loader": "^6.0.6",
+        "style-loader": "^0.18.2",
+        "webpack": "^3.0.0"
+    }
 }
