@@ -1,5 +1,6 @@
 {
     "watch": [
+        "/package.json",
         "/packages/wjs-server/server.config.js",
         "/packages/wjs-server/server.js",
         "/packages/wjs-server/libs"
