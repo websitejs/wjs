@@ -6,7 +6,7 @@
  ## Installation
  Install global dependencies:
  ```sh
- $ npm install -g node-gyp rimraf jshint lerna
+ $ npm install -g node-gyp rimraf jshint lerna nodemon
  ```
 
  Install project dependencies:
@@ -17,3 +17,13 @@ $ npm install
 ## Building
 ```sh
 $ npm run build
+```
+
+## Development Server
+The development server is an nodejs express server based on browsersync and is kept alive by nodemon.
+It uses the nunjucks template engine to render templates and updates on the fly. No preprocessing neccessary.
+To start the server use
+```sh
+$ npm run server
+```
+> For more information see the 'wjs-server' package readme. 
