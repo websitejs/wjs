@@ -3,26 +3,41 @@
 'use strict';
 
 var path = require('path'),
-    Config = require(path.join(__dirname, '../../', 'project.config.js'));
+    config = require(path.join(__dirname, '../../', 'project.config.js'));
 
 var server = {
-    root: Config.folders.build,
+    root: config.folders.build.root,
 
     folders: {
         views: [
             path.join(__dirname, 'views'),
-            Config.folders.elements,
-            Config.folders.components
+            config.folders.src.elements,
+            config.folders.src.components
         ]
+    },
+
+    paths: {
+        js: path.relative(config.folders.build.root, config.folders.build.js),
+        css: path.relative(config.folders.build.root, config.folders.build.css),
+        assets: {
+            root: path.relative(config.folders.build.root,  config.folders.build.assets.root),
+            images: path.relative(config.folders.build.root,  config.folders.build.assets.images),
+            icons: {
+                root: path.relative(config.folders.build.root, config.folders.build.assets.icons.root),
+                svg: path.relative(config.folders.build.root, config.folders.build.assets.icons.svg)
+            },
+            fonts: path.relative(config.folders.build.root, config.folders.build.assets.fonts)
+        }
     },
 
     filesToWatch: [
         path.join(__dirname, 'views', '**/*.html'),
-        path.join(Config.folders.elements, '**/*.html'),
-        path.join(Config.folders.components, '**/*.html')        
+        path.join(config.folders.build.root, '**/*.{js, css}'),
+        path.join(config.folders.src.elements, '**/*.html'),
+        path.join(config.folders.src.components, '**/*.html')        
     ]
 };
 
-Config.server = server;
+config.server = server;
 
-module.exports = Config;
+module.exports = config;

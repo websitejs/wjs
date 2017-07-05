@@ -7,12 +7,10 @@ var path = require('path'),
     devIp = require('dev-ip'),
     findPort = require('find-free-port'),
     express = require('express'),
-    //http = require('http'),
     nunjucks = require('nunjucks'),
     favicon = require('serve-favicon'),
     bs = require('browser-sync').create(),
     app = express();
-
 
 // define browsersync watches
 bs.watch(config.server.filesToWatch).on('change', function(filename, fileinfo) {
@@ -33,7 +31,7 @@ nunjucks.configure(config.server.folders.views, {
 app.use(require('connect-browser-sync')(bs));
 
 // set static map
-// app.use('/static', express.static(config.paths.build.root));
+app.use(express.static(config.server.root));
 
 // favicon
 app.use(favicon(path.join(config.server.root, 'assets', 'icons', 'favicon.ico')));
@@ -54,7 +52,8 @@ app.get('/', function(req, res) {
         project: {
             title: config.project.name,
             version: config.project.version
-        }
+        },
+        paths: config.server.paths
     });
 });
 
