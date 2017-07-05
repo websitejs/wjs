@@ -1,6 +1,6 @@
 /* jshint esversion: 6 */
 let Index = {
-    bla: bla
+    bla: 'bla'
 };
 
 module.exports = Index;
