@@ -1,13 +1,15 @@
 /* jshint esversion: 6 */
+var config = require('./project.config.js');
 const path = require('path');
 const webpack = require('webpack');
-const extractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
     entry: ['./src/index.js', './src/styles.scss'],
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, config.folders.build.root),
+        filename: path.relative(config.folders.build.root, config.folders.build.js) + '/' + config.jsFileName + '.min.js'
     },
     devtool: 'source-map',
     module: {
@@ -24,7 +26,7 @@ module.exports = {
             },
             { // regular css files
                 test: /\.css$/,
-                use: extractTextPlugin.extract({
+                use: ExtractTextPlugin.extract({
                     use: [{
                         loader: 'style-loader',
                         options: {
@@ -60,7 +62,7 @@ module.exports = {
             },
             { // sass / scss
                 test: /\.(sass|scss)$/,
-                use: extractTextPlugin.extract({
+                use: ExtractTextPlugin.extract({
                     use: [{
                         loader: 'css-loader',
                         options: {
@@ -96,8 +98,9 @@ module.exports = {
         ]
     },
     plugins: [
-        new extractTextPlugin({
-            filename: 'bundle.min.css',
+        new ExtractTextPlugin({
+            filename: path.relative(config.folders.build.root, config.folders.build.css) + '/' + config.cssFileName + '.min.css',
+            //path: path.resolve(__dirname, 'dist/css'),
             allChunks: true
         }),
         new webpack.optimize.UglifyJsPlugin({
@@ -111,7 +114,8 @@ module.exports = {
             },
             comments: false,
             sourceMap: true
-        })
+        }),
+        new ProgressBarPlugin()
     ]
 };
 
