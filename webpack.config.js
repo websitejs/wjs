@@ -4,6 +4,8 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 module.exports = {
     entry: ['./src/index.js', './src/styles.scss'],
@@ -115,6 +117,11 @@ module.exports = {
             comments: false,
             sourceMap: true
         }),
+        new CopyWebpackPlugin([{
+            from: config.folders.src.assets.root,
+            to: config.folders.build.assets.root
+        }]),
+        new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
         new ProgressBarPlugin()
     ]
 };
