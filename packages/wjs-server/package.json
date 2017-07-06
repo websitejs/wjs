@@ -1,6 +1,6 @@
 {
     "name": "wjs-server",
-    "version": "0.5.1",
+    "version": "0.5.2",
     "description": "WebsiteJS Server",
     "main": "server.js",
     "scripts": {
