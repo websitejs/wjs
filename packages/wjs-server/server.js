@@ -30,7 +30,7 @@ nunjucks.configure(config.server.folders.views, {
 // let app use browsersync
 app.use(require('connect-browser-sync')(bs));
 
-// set static map
+// set server root as static map
 app.use(express.static(config.server.root));
 
 // favicon
@@ -61,7 +61,7 @@ app.get('/', function(req, res) {
 
 // find free port and set up server
 var port = process.env.PORT;
-findPort(3000, 3100, '127.0.0.1', function(err, freePort){
+findPort(3000, 3100, '127.0.0.1', function(err, freePort) {
     
     port = freePort;
     
