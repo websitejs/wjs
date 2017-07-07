@@ -6,6 +6,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const SvgStore = require('webpack-svgstore-plugin');
+const PermissionsOutputPlugin = require('webpack-permissions-plugin');
 
 module.exports = {
     entry: ['./src/index.js', './src/styles.scss'],
@@ -102,7 +104,6 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin({
             filename: path.relative(config.folders.build.root, config.folders.build.css) + '/' + config.cssFileName + '.min.css',
-            //path: path.resolve(__dirname, 'dist/css'),
             allChunks: true
         }),
         new webpack.optimize.UglifyJsPlugin({
@@ -117,11 +118,28 @@ module.exports = {
             comments: false,
             sourceMap: true
         }),
+        new SvgStore(path.resolve(__dirname, config.folders.src.root, '**/*.svg'), path.resolve(__dirname, config.folders.build.root), {
+            name: 'sprite.svg'
+            //prefix: 'myprefix-',
+            // svgoOptions: {
+            //     // options for svgo, optional
+            // }
+        }),
         new CopyWebpackPlugin([{
             from: config.folders.src.assets.root,
-            to: config.folders.build.assets.root
-        }]),
-        new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
+            to: config.folders.build.assets.root,
+            ignore: [path.relative(config.folders.src.assets.root, path.join(config.folders.src.assets.icons.svg, '**/*'))],
+        }], {
+            copyUnmodified: true
+        }),
+        new ImageminPlugin({ test: /\.(jpe?g|png|gif)$/i }),
+        new PermissionsOutputPlugin({
+            buildFolders: [{
+                path: path.resolve(config.folders.build.root, config.folders.build.assets.root + '/'), 
+                fileMode: '777',
+                dirMode: '777'
+            }]
+        }),
         new ProgressBarPlugin()
     ]
 };
