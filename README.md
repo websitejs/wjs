@@ -6,7 +6,7 @@
  ## Installation
  Install global dependencies:
  ```sh
- $ npm install -g node-gyp rimraf jshint lerna nodemon
+ $ npm install -g node-gyp rimraf jshint lerna nodemon gulp-cli
  ```
 
  Install project dependencies:
@@ -16,7 +16,7 @@ $ npm install
 
 ## Building
 ```sh
-$ npm run build
+$ gulp
 ```
 
 ## Development Server
