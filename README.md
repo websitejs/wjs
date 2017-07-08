@@ -4,14 +4,19 @@
  > The tool for managing the monorepo is [Lerna](https://github.com/lerna/lerna)
 
  ## Installation
- Install global dependencies:
+ Make sure you have [NodeJS](http://nodejs.org) version 7 or higher installed and
+ install global dependencies:
  ```sh
- $ npm install -g node-gyp rimraf jshint lerna nodemon gulp-cli
+ $ npm install -g npm node-gyp rimraf jshint lerna nodemon gulp-cli
  ```
 
  Install project dependencies:
 ```sh
 $ npm install 
+```
+To install local packages and their dependencies run
+```sh
+$ lerna bootstrap
 ```
 
 ## Building
