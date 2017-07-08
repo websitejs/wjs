@@ -25,6 +25,7 @@
         "babel-preset-env": "^1.6.0",
         "babel-register": "^6.24.1",
         "gulp": "github:gulpjs/gulp#4.0",
+        "import-dir": "0.0.1",
         "lerna": "^2.0.0-rc.5",
         "node-sass": "^4.5.3",
         "sass-lint": "^1.10.2"

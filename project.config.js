@@ -12,6 +12,7 @@ var path = require('path'),
     },
 
     cwd = __dirname,
+    gulpTasks = path.join(cwd, 'gulp', 'tasks'),
     srcRoot = path.join(cwd, 'src'),
     buildRoot = path.join(cwd, 'dist'),
 
@@ -60,6 +61,7 @@ var config = {
     jsFileName: jsFileName,
     cssFileName: cssFileName,
     folders: {
+        gulpTasks: gulpTasks,
         src: folders.src,
         build: folders.build
     }
