@@ -22,12 +22,18 @@
     },
     "homepage": "https://github.com/websitejs/wjs#readme",
     "devDependencies": {
+        "autoprefixer": "^7.1.2",
         "babel-preset-env": "^1.6.0",
         "babel-register": "^6.24.1",
+        "cssnano": "^3.10.0",
+        "del": "^3.0.0",
         "gulp": "github:gulpjs/gulp#4.0",
+        "gulp-postcss": "^7.0.0",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^3.1.0",
+        "gulp-sourcemaps": "^2.6.0",
         "import-dir": "0.0.1",
         "lerna": "^2.0.0-rc.5",
-        "node-sass": "^4.5.3",
         "sass-lint": "^1.10.2"
     }
 }
