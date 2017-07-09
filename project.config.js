@@ -5,6 +5,8 @@
 // create paths/folders
 var path = require('path'),
     pkg = require('./package.json'),
+    
+    debugMode = true,
 
     project = {
         name: pkg.name,
@@ -57,6 +59,7 @@ var path = require('path'),
 // create object
 var config = {
     project: project,
+    debugMode: debugMode,
     cwd: cwd,
     jsFileName: jsFileName,
     cssFileName: cssFileName,
