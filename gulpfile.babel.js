@@ -1,14 +1,15 @@
 import config from './project.config.js';
-import requireDir from 'require-dir';
 import importDir from 'import-dir';
 import gulp from 'gulp';
 
 // get tasks from dir
 const taskFiles = importDir(config.folders.gulpTasks);
 
+// export/register found tasks
 Object.keys(taskFiles).forEach((taskName) => {
     exports[taskName] = taskFiles[taskName];
 });
 
-const build = gulp.series(exports.sass, exports.assets);
-export { build };
+// export/register default (build) task
+const build = gulp.series(gulp.parallel(exports.scripts, exports.sass), exports.assets);
+export default build;
