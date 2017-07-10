@@ -11,5 +11,5 @@ Object.keys(taskFiles).forEach((taskName) => {
 });
 
 // export/register default (build) task
-const build = gulp.series(gulp.parallel(exports.scripts, exports.sass), exports.assets);
+const build = gulp.series(gulp.parallel(exports.scripts, exports.sass), gulp.parallel(exports.svgicons, exports.assets));
 export default build;
