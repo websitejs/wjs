@@ -53,7 +53,8 @@ var path = require('path'),
             },
             elements: path.join(buildRoot, 'elements'),
             components: path.join(buildRoot, 'components')
-        }
+        },
+        test: path.join(cwd, 'test')
     };
 
 // create object
@@ -66,7 +67,8 @@ var config = {
     folders: {
         gulpTasks: gulpTasks,
         src: folders.src,
-        build: folders.build
+        build: folders.build,
+        test: folders.test
     }
 };
 

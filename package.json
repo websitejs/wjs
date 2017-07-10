@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "build": "webpack --hide-modules --colors",
-        "server": "nodemon --config ./packages/wjs-server/nodemon.json ./packages/wjs-server/server.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "nodemon --config ./packages/wjs-server/nodemon.json ./packages/wjs-server/server.js",
+        "test": "node ./test/test.js"
     },
     "repository": {
         "type": "git",
@@ -39,8 +39,10 @@
         "gulp-svgstore": "^6.1.0",
         "gulp-util": "^3.0.8",
         "import-dir": "0.0.1",
+        "jasmine": "^2.6.0",
         "lerna": "^2.0.0-rc.5",
         "progress-bar-webpack-plugin": "^1.9.3",
+        "protractor-jasmine2-html-reporter": "0.0.7",
         "sass-lint": "^1.10.2",
         "through2": "^2.0.3",
         "vinyl-named": "^1.1.0",

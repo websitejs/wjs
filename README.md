@@ -7,7 +7,7 @@
  Make sure you have [NodeJS](http://nodejs.org) version 7 or higher installed and
  install global dependencies:
  ```sh
- $ npm install -g npm node-gyp rimraf jshint lerna nodemon gulp-cli
+ $ npm install -g npm node-gyp rimraf jshint lerna nodemon gulp-cli jasmine
  ```
 
  Install project dependencies:
