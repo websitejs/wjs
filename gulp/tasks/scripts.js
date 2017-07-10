@@ -17,7 +17,7 @@ import sourcemaps from 'gulp-sourcemaps';
 function cleanScripts(done) {
     del([path.join(config.folders.build.js, config.jsFileName + '.{min.js,min.js.map}'), '!' + config.folders.build.js]).then(paths => {
         if (config.debugMode) {
-            console.log('Deleted files and folders:\n', paths.join('\n'));
+            gutil.log('Cleaned:\n', paths.join('\n'));
         }
         done();
     });

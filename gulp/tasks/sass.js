@@ -1,6 +1,7 @@
 import config from '../../project.config.js';
 import path from 'path';
 import gulp from 'gulp';
+import gutil from 'gulp-util';
 import del from 'del';
 import gulpSass from 'gulp-sass';
 import rename from 'gulp-rename';
@@ -16,7 +17,7 @@ import sourcemaps from 'gulp-sourcemaps';
 function cleanSass(done) {
     del([path.join(config.folders.build.css, config.cssFileName + '.{min.css,min.css.map}'), '!' + config.folders.build.css]).then(paths => {
         if (config.debugMode) {
-            console.log('Deleted files and folders:\n', paths.join('\n'));
+            gutil.log('Cleaned:\n', paths.join('\n'));
         }
         done();
     });
