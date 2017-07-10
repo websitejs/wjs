@@ -23,12 +23,22 @@ $ lerna bootstrap
 ```sh
 $ gulp
 ```
+or
+```sh
+$ npm build
+```
 
 ## Development Server
 The development server is an nodejs express server based on browsersync and is kept alive by nodemon.
 It uses the nunjucks template engine to render templates and updates on the fly. No preprocessing neccessary.
 To start the server use
 ```sh
-$ npm run server
+$ npm start
 ```
 > For more information see the 'wjs-server' package readme. 
+
+## Jasmine testing
+To start the tests run
+```sh
+$ npm test
+```
