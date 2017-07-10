@@ -23,6 +23,8 @@
     "homepage": "https://github.com/websitejs/wjs#readme",
     "devDependencies": {
         "autoprefixer": "^7.1.2",
+        "babel-core": "^6.25.0",
+        "babel-loader": "^7.1.1",
         "babel-preset-env": "^1.6.0",
         "babel-register": "^6.24.1",
         "cssnano": "^3.10.0",
@@ -32,8 +34,14 @@
         "gulp-rename": "^1.2.2",
         "gulp-sass": "^3.1.0",
         "gulp-sourcemaps": "^2.6.0",
+        "gulp-util": "^3.0.8",
         "import-dir": "0.0.1",
         "lerna": "^2.0.0-rc.5",
-        "sass-lint": "^1.10.2"
+        "progress-bar-webpack-plugin": "^1.9.3",
+        "sass-lint": "^1.10.2",
+        "through2": "^2.0.3",
+        "vinyl-named": "^1.1.0",
+        "webpack": "^3.1.0",
+        "webpack-stream": "^3.2.0"
     }
 }
